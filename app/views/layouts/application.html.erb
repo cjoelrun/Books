@@ -7,6 +7,8 @@
     <title>Books</title>
     <meta name="description" content="">
     <meta name="author" content="">
+    <%= stylesheet_link_tag    "print" %>
+    <%= stylesheet_link_tag    "screen" %>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
@@ -14,17 +16,20 @@
   <body class="<%= params[:controller] %>">
     <div id="container" class="container">
       <header>
+	<h1>Books</h1>
         <nav>
           <ul class="hmenu">
             <%= render 'shared/navigation' %>
           </ul>
         </nav>
+	<hr />
         <%- flash.each do |name, msg| -%>
           <%= content_tag :div, msg, :id => "flash_\#{name}" if msg.is_a?(String) %>
         <%- end -%>
       </header>
       <div id="main" role="main">
-        <%= yield %>
+	<%= yield %>
+      </div>
       </div>
       <footer>
       </footer>

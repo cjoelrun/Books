@@ -1,10 +1,12 @@
 Books::Application.routes.draw do
   #get \"users\/show\"
-
+  
   root :to => "home#index"
 
   devise_for :users
   resources :users, :only => :show
+
+  get "search" => "home#search", :as => :search
 
 
   # The priority is based upon order of creation:
