@@ -80,4 +80,7 @@ class BooksController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  def search
+  end
 end
