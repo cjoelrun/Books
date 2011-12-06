@@ -1,3 +1,4 @@
 class Author < ActiveRecord::Base
-  has_and_belongs_to_many :books
+  has_many :publications
+  has_many :books, :through => :publications
 end

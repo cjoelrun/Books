@@ -11,11 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111203081841) do
+ActiveRecord::Schema.define(:version => 20111204181705) do
 
   create_table "authors", :force => true do |t|
     t.text     "author"
     t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bookmarks", :force => true do |t|
+    t.integer  "book_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.string   "shelf"
     t.datetime "updated_at"
   end
 
@@ -24,6 +32,15 @@ ActiveRecord::Schema.define(:version => 20111203081841) do
     t.string   "title"
     t.string   "subtitle"
     t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "publications", :force => true do |t|
+    t.integer  "book_id"
+    t.integer  "author_id"
+    t.datetime "created_at"
+    t.date     "published_date"
+    t.string   "publisher"
     t.datetime "updated_at"
   end
 

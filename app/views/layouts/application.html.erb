@@ -16,7 +16,9 @@
   <body class="<%= params[:controller] %>">
     <div id="container" class="container">
       <header>
-	<h1>Books</h1>
+	<h1>
+	  <%= link_to('Books', root_url) %>
+	</h1>
         <nav>
           <ul class="hmenu">
             <%= render 'shared/navigation' %>

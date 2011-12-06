@@ -2,7 +2,7 @@ Books::Application.routes.draw do
   resources :books
 
   #get \"users\/show\"
-  
+
   root :to => "home#index"
 
   devise_for :users
