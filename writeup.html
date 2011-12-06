@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Lab 8 - Books</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+      <!--/*--><![CDATA[/*><!--*/
+      html { font-family: Times, serif; font-size: 12pt; }
+      .title  { text-align: center; }
+      .todo   { color: red; }
+      .done   { color: green; }
+      .tag    { background-color: #add8e6; font-weight:normal }
+      .target { }
+      .timestamp { color: #bebebe; }
+      .timestamp-kwd { color: #5f9ea0; }
+      .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+      .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+      .center {margin-left:auto; margin-right:auto; text-align:center;}
+      p.verse { margin-left: 3% }
+      pre {
+	  border: 1pt solid #AEBDCC;
+	  background-color: #F3F5F7;
+	  padding: 5pt;
+	  font-family: courier, monospace;
+          font-size: 90%;
+          overflow:auto;
+      }
+      table { border-collapse: collapse; }
+      td, th { vertical-align: top;  }
+      th.right  { text-align:center;  }
+      th.left   { text-align:center;   }
+      th.center { text-align:center; }
+      td.right  { text-align:right;  }
+      td.left   { text-align:left;   }
+      td.center { text-align:center; }
+      dt { font-weight: bold; }
+      div.figure { padding: 0.5em; }
+      div.figure p { text-align: center; }
+      textarea { overflow-x: auto; }
+      .linenr { font-size:smaller }
+      .code-highlighted {background-color:#ffff00;}
+      .org-info-js_info-navigation { border-style:none; }
+      #org-info-js_console-label { font-size:10px; font-weight:bold;
+				   white-space:nowrap; }
+      .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                     font-weight:bold; }
+      /*]]>*/-->
+    </style>
+    <script type="text/javascript">
+      <!--/*--><![CDATA[/*><!--*/
+      function CodeHighlightOn(elem, id)
+      {
+	  var target = document.getElementById(id);
+	  if(null != target) {
+	      elem.cacheClassElem = elem.className;
+	      elem.cacheClassTarget = target.className;
+	      target.className = "code-highlighted";
+	      elem.className   = "code-highlighted";
+	  }
+      }
+      function CodeHighlightOff(elem, id)
+      {
+	  var target = document.getElementById(id);
+	  if(elem.cacheClassElem)
+	      elem.className = elem.cacheClassElem;
+	  if(elem.cacheClassTarget)
+	      target.className = elem.cacheClassTarget;
+      }
+      /*]]>*///-->
+    </script>
+  </head>
+  <body>
+    <div id="content">
+      <h1>Lab8 WriteUp - Books</h1>
+      <p>Cameron Lopez</p>
+      
+      <h2>Links</h2>
+      <p>
+	<a href="https://github.com/cjoelrun/Books">Github</a><br />
+	<a href="http://pure-waterfall-6973.heroku.com/">Heroku</a>
+      </p>
+
+      <h2>Routes</h2>
+      <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+	<caption></caption>
+	<colgroup><col class="left" /><col class="left" /><col class="left" /><col class="left" />
+	</colgroup>
+	<thead>
+	  <tr><th scope="col" class="left">Name</th><th scope="col" class="left">Method</th><th scope="col" class="left">Path</th><th scope="col" class="left">Action</th></tr>
+	</thead>
+	<tbody>
+	  <tr><td class="left">books</td><td class="left">GET</td><td class="left">/books(:format)</td><td class="left">{:action=&gt;"index", :controller=&gt;"books"}</td></tr>
+	  <tr><td class="left"></td><td class="left">POST</td><td class="left">/books(:format)</td><td class="left">{:action=&gt;"create", :controller=&gt;"books"}</td></tr>
+	  <tr><td class="left">new_book</td><td class="left">GET</td><td class="left">/books/new(:format)</td><td class="left">{:action=&gt;"new", :controller=&gt;"books"}</td></tr>
+	  <tr><td class="left">edit_book</td><td class="left">GET</td><td class="left">/books:id/edit(:format)</td><td class="left">{:action=&gt;"edit", :controller=&gt;"books"}</td></tr>
+	  <tr><td class="left">book</td><td class="left">GET</td><td class="left">/books:id(:format)</td><td class="left">{:action=&gt;"show", :controller=&gt;"books"}</td></tr>
+	  <tr><td class="left"></td><td class="left">PUT</td><td class="left">/books:id(:format)</td><td class="left">{:action=&gt;"update", :controller=&gt;"books"}</td></tr>
+	  <tr><td class="left"></td><td class="left">DELETE</td><td class="left">/books:id(:format)</td><td class="left">{:action=&gt;"destroy", :controller=&gt;"books"}</td></tr>
+	  <tr><td class="left">root</td><td class="left"></td><td class="left">/</td><td class="left">{:controller=&gt;"home", :action=&gt;"index"}</td></tr>
+	  <tr><td class="left">new_user_session</td><td class="left">GET</td><td class="left">/users/signin(:format)</td><td class="left">{:action=&gt;"new", :controller=&gt;"devise/sessions"}</td></tr>
+	  <tr><td class="left">user_session</td><td class="left">POST</td><td class="left">/users/signin(:format)</td><td class="left">{:action=&gt;"create", :controller=&gt;"devise/sessions"}</td></tr>
+	  <tr><td class="left">destroy_usersession</td><td class="left">DELETE</td><td class="left">/users/signout(:format)</td><td class="left">{:action=&gt;"destroy", :controller=&gt;"devise/sessions"}</td></tr>
+	  <tr><td class="left">user_password</td><td class="left">POST</td><td class="left">/users/password(:format)</td><td class="left">{:action=&gt;"create", :controller=&gt;"devise/passwords"}</td></tr>
+	  <tr><td class="left">new_user_password</td><td class="left">GET</td><td class="left">/users/password/new(:format)</td><td class="left">{:action=&gt;"new", :controller=&gt;"devise/passwords"}</td></tr>
+	  <tr><td class="left">edit_user_password</td><td class="left">GET</td><td class="left">/users/password/edit(:format)</td><td class="left">{:action=&gt;"edit", :controller=&gt;"devise/passwords"}</td></tr>
+	  <tr><td class="left"></td><td class="left">PUT</td><td class="left">/users/password(:format)</td><td class="left">{:action=&gt;"update", :controller=&gt;"devise/passwords"}</td></tr>
+	  <tr><td class="left">cancel_user_registration</td><td class="left">GET</td><td class="left">/users/cancel(:format)</td><td class="left">{:action=&gt;"cancel", :controller=&gt;"devise/registrations"}</td></tr>
+	  <tr><td class="left">user_registration</td><td class="left">POST</td><td class="left">/users(:format)</td><td class="left">{:action=&gt;"create", :controller=&gt;"devise/registrations"}</td></tr>
+	  <tr><td class="left">new_user_registration</td><td class="left">GET</td><td class="left">/users/signup(:format)</td><td class="left">{:action=&gt;"new", :controller=&gt;"devise/registrations"}</td></tr>
+	  <tr><td class="left">edit_user+registration</td><td class="left">GET</td><td class="left">/users/edit(:format)</td><td class="left">{:action=&gt;"edit", :controller=&gt;"devise/registrations"}</td></tr>
+	  <tr><td class="left"></td><td class="left">PUT</td><td class="left">/users(:format)</td><td class="left">{:action=&gt;"update", :controller=&gt;"devise/registrations"}</td></tr>
+	  <tr><td class="left"></td><td class="left">DELETE</td><td class="left">/users(:format)</td><td class="left">{:action=&gt;"destroy", :controller=&gt;"devise/registrations"}</td></tr>
+	  <tr><td class="left">user</td><td class="left">GET</td><td class="left">/users:id(:format)</td><td class="left">{:action=&gt;"show", :controller=&gt;"users"}</td></tr>
+	  <tr><td class="left">search</td><td class="left">GET</td><td class="left">/search(:format)</td><td class="left">{:action=&gt;"search", :controller=&gt;"books"}</td></tr>
+	</tbody>
+      </table>
+
+      <h2>Description</h2>
+      Allows users to track their reading.  Three shelves exisit: To Read, Reading, and Read.  Books are searched for using a form that performs requests to the Google Book API.  Book views and searches all have data retreived from Google's services.  Bookmarks are how users save books.  A bookmark stores information to quickly retreive books from Google's Book API for future requests.
+
+      <h2>Functionality</h2>
+      Basic functionality will include user authentication using devise.  Book search using Google's Book API.  Book management, including creation, deletion, and editing of bookmarks.  Shelf views to display user's bookmarks.
+    </div>
+  </body>
+</html>
+
+
