@@ -2,6 +2,7 @@ require 'rbconfig'
 HOST_OS = RbConfig::CONFIG['host_os']
 source 'http://rubygems.org'
 gem 'rails', '3.1.3'
+gem "google_books", "~> 0.2.1"
 
 group :development, :test do
    gem 'sqlite3', '1.3.4', :require => 'sqlite3'

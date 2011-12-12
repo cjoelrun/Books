@@ -1,9 +1,6 @@
 class BooksController < ApplicationController
   # GET /books
   # GET /books.json
-
-  before_filter :authenticate_user!
-  
   def index
     @books = Book.all
 
@@ -84,6 +81,12 @@ class BooksController < ApplicationController
     end
   end
 
-  def search
+    def search
+  end
+
+  def results
+    if(commit = "Search" && params[:q])
+      @books = GoogleBooks::API.search(params[:q])
+    end
   end
 end

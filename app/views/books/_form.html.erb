@@ -12,20 +12,48 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :id %><br />
-    <%= f.text_field :id %>
-  </div>
-  <div class="field">
-    <%= f.label :selfLink %><br />
-    <%= f.text_field :selfLink %>
-  </div>
-  <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :subtitle %><br />
-    <%= f.text_field :subtitle %>
+    <%= f.label :publisher %><br />
+    <%= f.text_field :publisher %>
+  </div>
+  <div class="field">
+    <%= f.label :published_date %><br />
+    <%= f.date_select :published_date %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :isbn %><br />
+    <%= f.text_field :isbn %>
+  </div>
+  <div class="field">
+    <%= f.label :isbn_10 %><br />
+    <%= f.text_field :isbn_10 %>
+  </div>
+  <div class="field">
+    <%= f.label :page_count %><br />
+    <%= f.number_field :page_count %>
+  </div>
+  <div class="field">
+    <%= f.label :average_rating %><br />
+    <%= f.text_field :average_rating %>
+  </div>
+  <div class="field">
+    <%= f.label :ratings_count %><br />
+    <%= f.number_field :ratings_count %>
+  </div>
+  <div class="field">
+    <%= f.label :preview_link %><br />
+    <%= f.text_field :preview_link %>
+  </div>
+  <div class="field">
+    <%= f.label :info_link %><br />
+    <%= f.text_field :info_link %>
   </div>
   <div class="actions">
     <%= f.submit %>

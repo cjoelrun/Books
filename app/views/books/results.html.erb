@@ -1,0 +1,18 @@
+<%= link_to("Back to Search", search_path) %>
+
+<table>
+<% @books.each do |book| %>
+  <tr>
+    <td><%= image_tag(book.covers[:thumbnail]) %></td>
+    <td><%= book.title %></td>
+    <td>
+      <% book.authors.each do |author|  %>
+	<%= author %><br/>
+      <% end  %>
+    </td>
+    <td><%= book.description %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= @books.first.inspect %>

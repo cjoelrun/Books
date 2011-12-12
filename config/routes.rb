@@ -9,6 +9,7 @@ Books::Application.routes.draw do
   resources :users, :only => :show
 
   get "search" => "books#search", :as => :search
+  get "results" => "books#results", :as => :results
 
 
   # The priority is based upon order of creation:
