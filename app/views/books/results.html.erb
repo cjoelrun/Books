@@ -3,7 +3,11 @@
 <table>
   <% @results.each do |book| %>
     <tr>
-      <td><%= image_tag(book.covers[:thumbnail]) %></td>
+      <td>
+	<% if book.covers[:thumbnail] %>
+	  <%= image_tag(book.covers[:thumbnail]) %>
+        <% end %>
+      </td>
       <td><%= book.title %></td>
       <td>
 	<% book.authors.each do |author|  %>
@@ -11,8 +15,9 @@
 	<% end  %>
       </td>
       <td>
-	<% @description = book.description %>
-	<%= raw @description %>
+	<% if book.description %>
+	  <%= raw (@description = book.description) %>
+        <% end %>
       </td>
       <td>
 	<%= form_for @book do |f| %>
