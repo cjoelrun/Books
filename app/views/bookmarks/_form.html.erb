@@ -1,0 +1,30 @@
+<%= form_for(@bookmark) do |f| %>
+  <% if @bookmark.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bookmark.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+      <% @bookmark.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :book_id %><br />
+    <%= f.text_field :book_id %>
+  </div>
+  <div class="field">
+    <%= options_for_select([['To Read', "To Read"], ['Reading', "Reading"], ['Read', "Read"]]) %>
+    <%= f.label :shelf %><br />
+    <%= select_tag(:shelf, options_for_select())%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

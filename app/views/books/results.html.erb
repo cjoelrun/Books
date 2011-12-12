@@ -1,48 +1,50 @@
 <%= link_to("Back to Search", search_path) %>
 
 <table>
-  <% @results.each do |book| %>
-    <tr>
-      <td>
-	<% if book.covers[:thumbnail] %>
-	  <%= image_tag(book.covers[:thumbnail]) %>
-        <% end %>
-      </td>
-      <td><%= book.title %></td>
-      <td>
-	<% book.authors.each do |author|  %>
-	  <%= author %><br/>
-	<% end  %>
-      </td>
-      <td>
-	<% if book.description %>
-	  <%= raw (@description = book.description) %>
-        <% end %>
-      </td>
-      <td>
-	<%= form_for @book do |f| %>
-	  <%= f.hidden_field(:title, :value => book.title) %>
-	  <%= f.hidden_field(:publisher, :value => book.publisher) %>
-	  <%= f.hidden_field(:published_date, :value => book.published_date) %>
-	  <%= f.hidden_field(:description, :value => book.description) %>
-	  <%= f.hidden_field(:isbn, :value => book.isbn) %>
-	  <%= f.hidden_field(:isbn_10, :value => book.isbn_10) %>
-	  <%= f.hidden_field(:page_count, :value => book.page_count) %>
-	  <%= f.hidden_field(:average_rating, :value => book.average_rating) %>
-	  <%= f.hidden_field(:ratings_count, :value => book.ratings_count) %>
-	  <%= f.hidden_field(:preview_link, :value => book.preview_link) %>
-	  <%= f.hidden_field(:info_link, :value => book.info_link) %>
-	  <%= f.hidden_field(:cover_thumbnail, :value => book.covers[:thumbnail]) %>
-	  <%= f.hidden_field(:cover_small, :value => book.covers[:small]) %>
-	  <%= f.hidden_field(:cover_medium, :value => book.covers[:medium]) %>
-	  <%= f.hidden_field(:cover_large, :value => book.covers[:large]) %>
-	  <%= f.hidden_field(:cover_extra_large, :value => book.covers[:extra_large]) %>
+  <% if @results %>
+    <% @results.each do |book| %>
+      <tr>
+	<td>
+      <% if book.covers[:thumbnail] %>
+	<%= image_tag(book.covers[:thumbnail]) %>
+      <% end %>
+	</td>
+	<td><%= book.title %></td>
+	<td>
+	  <% book.authors.each do |author|  %>
+	    <%= author %><br/>
+	  <% end  %>
+	</td>
+	<td>
+	  <% if book.description %>
+	    <%= raw (@description = book.description) %>
+	  <% end %>
+	</td>
+	<td>
+	  <%= form_for @book do |f| %>
+	    <%= f.hidden_field(:title, :value => book.title) %>
+	    <%= f.hidden_field(:publisher, :value => book.publisher) %>
+	    <%= f.hidden_field(:published_date, :value => book.published_date) %>
+	    <%= f.hidden_field(:description, :value => book.description) %>
+	    <%= f.hidden_field(:isbn, :value => book.isbn) %>
+	    <%= f.hidden_field(:isbn_10, :value => book.isbn_10) %>
+	    <%= f.hidden_field(:page_count, :value => book.page_count) %>
+	    <%= f.hidden_field(:average_rating, :value => book.average_rating) %>
+	    <%= f.hidden_field(:ratings_count, :value => book.ratings_count) %>
+	    <%= f.hidden_field(:preview_link, :value => book.preview_link) %>
+	    <%= f.hidden_field(:info_link, :value => book.info_link) %>
+	    <%= f.hidden_field(:cover_thumbnail, :value => book.covers[:thumbnail]) %>
+	    <%= f.hidden_field(:cover_small, :value => book.covers[:small]) %>
+	    <%= f.hidden_field(:cover_medium, :value => book.covers[:medium]) %>
+	    <%= f.hidden_field(:cover_large, :value => book.covers[:large]) %>
+	    <%= f.hidden_field(:cover_extra_large, :value => book.covers[:extra_large]) %>
 
-	  <div class="actions">
-	    <%= f.submit %>
-	  </div>
-	<% end %>
-      </td>
-    </tr>
+	    <div class="actions">
+	      <%= f.submit %>
+	    </div>
+	  <% end %>
+	</td>
+      </tr>
+    <% end %>
   <% end %>
 </table>

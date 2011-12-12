@@ -1,4 +1,4 @@
-<h1>Listing books</h1>
+<h1>Books</h1>
 
 <table>
   <tr>
@@ -19,8 +19,12 @@
       <%= raw @description %>
     </td>
     <td><%= link_to 'Show', book %></td>
-    <td><%= link_to 'Edit', edit_book_path(book) %></td>
-    <td><%= link_to 'Destroy', book, confirm: 'Are you sure?', method: :delete %></td>
+    <td>
+      <% @user = current_user %>
+      <%= form_tag("/books/" + book.id.to_s  + "/add", :method => "post") do %>
+	<%= hidden_field(:book, :value => book.id) %>
+	<%= submit_tag("Add") %>
+      <% end %>
   </tr>
 <% end %>
 </table>

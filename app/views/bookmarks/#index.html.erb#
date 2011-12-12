@@ -1,0 +1,21 @@
+<h1>Bookmarks</h1>
+
+<table>
+  <tr>
+    <th>Book ID</th>
+    <th>User ID</th>
+    <th>Shelf</th>
+    <th></th>
+  </tr>
+
+<% @bookmarks.each do |bookmark| %>
+  <tr>
+    <td><%= bookmark.book_id %></td>
+    <td><%= bookmark.user_id %></td>
+    <td><%= bookmark.shelf %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

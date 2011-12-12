@@ -6,11 +6,14 @@ Books::Application.routes.draw do
   root :to => "home#index"
 
   devise_for :users
-  resources :users, :only => :show
+  resources :users, :only => :show do
+    resources :bookmarks
+  end
 
   get "search" => "books#search", :as => :search
   get "results" => "books#results", :as => :results
 
+  match "books/:id/add" => "books#add"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

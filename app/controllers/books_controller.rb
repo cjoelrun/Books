@@ -87,8 +87,22 @@ class BooksController < ApplicationController
   def results
     # if(params[:q])
     @results = GoogleBooks::API.search(params[:q])
-    puts @results
     @book = Book.new
     # end
+  end
+
+  def add
+    @bookmark = Bookmark.new
+    @bookmark.book_id = params[:id]
+    @bookmark.user_id = current_user.id
+    respond_to do |format|
+      if @bookmark.save
+        format.html { redirect_to "/users/" + current_user.id.to_s + "/bookmarks/" + @bookmark.id.to_s, notice: 'Bookmark was successfully created.' }
+        format.json { render json: @bookmark, status: :created, location: @bookmark }
+      else
+        format.html { render action: "show" , controller: "books"}
+        format.json { render json: @bookmark.errors, status: :unprocessable_entity }
+      end
+    end
   end
 end
