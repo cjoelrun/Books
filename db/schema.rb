@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111212060446) do
+ActiveRecord::Schema.define(:version => 20111212113409) do
 
   create_table "authors", :force => true do |t|
     t.text     "author"
@@ -39,6 +39,17 @@ ActiveRecord::Schema.define(:version => 20111212060446) do
     t.integer  "ratings_count"
     t.string   "preview_link"
     t.string   "info_link"
+    t.string   "cover_thumbnail"
+    t.string   "cover_small"
+    t.string   "cover_medium"
+    t.string   "cover_large"
+    t.string   "cover_extra_large"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "category"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
