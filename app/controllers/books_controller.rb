@@ -86,7 +86,8 @@ class BooksController < ApplicationController
 
   def results
     if(commit = "Search" && params[:q])
-      @books = GoogleBooks::API.search(params[:q])
+      @results = GoogleBooks::API.search(params[:q])
+      @book = Book.new
     end
   end
 end
