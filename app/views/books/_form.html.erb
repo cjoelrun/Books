@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :published_date %><br />
-    <%= f.date_select :published_date %>
+    <%= f.text_field :published_date %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
@@ -37,7 +37,7 @@
   </div>
   <div class="field">
     <%= f.label :page_count %><br />
-    <%= f.number_field :page_count %>
+    <%= f.text_field :page_count %>
   </div>
   <div class="field">
     <%= f.label :average_rating %><br />
@@ -45,7 +45,7 @@
   </div>
   <div class="field">
     <%= f.label :ratings_count %><br />
-    <%= f.number_field :ratings_count %>
+    <%= f.text_field :ratings_count %>
   </div>
   <div class="field">
     <%= f.label :preview_link %><br />
@@ -54,6 +54,26 @@
   <div class="field">
     <%= f.label :info_link %><br />
     <%= f.text_field :info_link %>
+  </div>
+  <div class="field">
+    <%= f.label :cover_thumbnail %><br />
+    <%= f.text_field :cover_thumbnail %>
+  </div>
+  <div class="field">
+    <%= f.label :cover_small %><br />
+    <%= f.text_field :cover_small %>
+  </div>
+  <div class="field">
+    <%= f.label :cover_medium %><br />
+    <%= f.text_field :cover_medium %>
+  </div>
+  <div class="field">
+    <%= f.label :cover_large %><br />
+    <%= f.text_field :cover_large %>
+  </div>
+  <div class="field">
+    <%= f.label :cover_extra_large %><br />
+    <%= f.text_field :cover_extra_large %>
   </div>
   <div class="actions">
     <%= f.submit %>

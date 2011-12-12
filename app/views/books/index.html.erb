@@ -13,6 +13,11 @@
     <th>Ratings count</th>
     <th>Preview link</th>
     <th>Info link</th>
+    <th>Cover thumbnail</th>
+    <th>Cover small</th>
+    <th>Cover medium</th>
+    <th>Cover large</th>
+    <th>Cover extra large</th>
     <th></th>
     <th></th>
     <th></th>
@@ -31,6 +36,11 @@
     <td><%= book.ratings_count %></td>
     <td><%= book.preview_link %></td>
     <td><%= book.info_link %></td>
+    <td><%= book.cover_thumbnail %></td>
+    <td><%= book.cover_small %></td>
+    <td><%= book.cover_medium %></td>
+    <td><%= book.cover_large %></td>
+    <td><%= book.cover_extra_large %></td>
     <td><%= link_to 'Show', book %></td>
     <td><%= link_to 'Edit', edit_book_path(book) %></td>
     <td><%= link_to 'Destroy', book, confirm: 'Are you sure?', method: :delete %></td>

@@ -81,7 +81,7 @@ class BooksController < ApplicationController
     end
   end
 
-    def search
+  def search
   end
 
   def results

@@ -55,6 +55,31 @@
   <%= @book.info_link %>
 </p>
 
+<p>
+  <b>Cover thumbnail:</b>
+  <%= @book.cover_thumbnail %>
+</p>
+
+<p>
+  <b>Cover small:</b>
+  <%= @book.cover_small %>
+</p>
+
+<p>
+  <b>Cover medium:</b>
+  <%= @book.cover_medium %>
+</p>
+
+<p>
+  <b>Cover large:</b>
+  <%= @book.cover_large %>
+</p>
+
+<p>
+  <b>Cover extra large:</b>
+  <%= @book.cover_extra_large %>
+</p>
+
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

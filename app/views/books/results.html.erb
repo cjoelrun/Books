@@ -25,7 +25,14 @@
 	  <%= f.hidden_field(:page_count, :value => book.page_count) %>
 	  <%= f.hidden_field(:average_rating, :value => book.average_rating) %>
 	  <%= f.hidden_field(:ratings_count, :value => book.ratings_count) %>
-	  <%= f.hidden_field(:preview_link, :value => book.info_link) %>
+	  <%= f.hidden_field(:preview_link, :value => book.preview_link) %>
+	  <%= f.hidden_field(:info_link, :value => book.info_link) %>
+	  <%= f.hidden_field(:cover_thumbnail, :value => book.covers[:thumbnail]) %>
+	  <%= f.hidden_field(:cover_small, :value => book.covers[:small]) %>
+	  <%= f.hidden_field(:cover_medium, :value => book.covers[:medium]) %>
+	  <%= f.hidden_field(:cover_large, :value => book.covers[:large]) %>
+	  <%= f.hidden_field(:cover_extra_large, :value => book.covers[:extra_large]) %>
+
 	  <div class="actions">
 	    <%= f.submit %>
 	  </div>
