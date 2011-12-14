@@ -1,0 +1,85 @@
+% Created 2011-12-13 Tue 23:24
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{soul}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\providecommand{\alert}[1]{\textbf{#1}}
+
+\title{Dewie}
+\author{Cameron Lopez}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\setcounter{tocdepth}{3}
+\tableofcontents
+\vspace*{1cm}
+\section{Dewie}
+\label{sec-1}
+
+  The place for your Books
+  Github: \href{https://github.com/cjoelrun/Books}{https://github.com/cjoelrun/Books}
+  Heroku: \href{http://dewie.herokuapp.com/}{http://dewie.herokuapp.com/}
+\section{Purpose}
+\label{sec-2}
+
+  The purpose of my project, Dewie, is to offer readers a way to track which books they want to read, are reading, and have read.
+\section{Goal}
+\label{sec-3}
+
+  Dewie's goal is to allow readers to add books easily to reading lists.  Functionality consits basically of searching for books, bookmarking books, managing bookmarks, and discovering new books other users have bookmarked on the site.
+\section{Description}
+\label{sec-4}
+\subsection{Client}
+\label{sec-4-1}
+
+   The face of Dewie is simple.  Interfaces are meant to appeal to readers who love the simplicity of text on the page of a book.  The homepage displays the users's current reading list to a logged in user.  The search page allows the user to search for a book.  Information is displayed along with resulting books.  After choosing a book it shows up in your bookmarks.  Your bookmarks page allows you to manage bookmarks, delete or move to another shelf.  The books other users have added are on the books page which can be bookmarked with the click of a button.
+\subsection{Backend}
+\label{sec-4-2}
+
+   Behind Dewie are three major components.  \underline{Users}, \underline{books}, and \underline{bookmarks}.  How they're modeled describes how the site handles bookmarking well:  \underline{Users} and \underline{books} have a many-to-many relationship with each other through \underline{bookmarks}.
+   \underline{Users} are handled through \href{https://github.com/plataformatec/devise}{devise}, a RubyGem.  They can have many books through \underline{bookmarks}.
+   \underline{Books} are scaffolded to contain all the information given by the \href{http://code.google.com/apis/books/}{Google Book API} query, carried out by the \href{http://rubygems.org/gems/google_books}{google\_books} RubyGem.  \underline{Books} can have many \underline{Users} through \underline{Bookmarks}.
+   \underline{Bookmarks} are the center functionality of the site.  They track \underline{Books} that \underline{Users} wish to track. 
+\subsubsection{Database}
+\label{sec-4-2-1}
+
+    The User's database is generated through Devise.  The Book database contains all the fields given by the \href{http://code.google.com/apis/books/}{Google Book API}.  The Bookmarks database contains the shelf the book is stored on and respective User and Book.
+\section{Discussion}
+\label{sec-5}
+\subsection{Challenges}
+\label{sec-5-1}
+
+   A challenge involved in creating Dewie was integrating the foreign data from Google to the application.  I believe the largest challenge was simply learning the ways of Rails and expressing my application in such abstract ways.  The magic of Rails still eludes me in certain aspects, but I hope to conquer them as I continue to develop Dewie.
+\subsection{Strengths}
+\label{sec-5-2}
+
+   Features worth talking about are things like the ability to search any book indexed by Google.  It offers a very intuitive way of entering books into the site, rather then filling all information in by hand.  This information provides attractive thing such as photo covers and indepth information about each book.
+\subsection{Weaknesses}
+\label{sec-5-3}
+
+   A weakness of the site now is that the api is still limited in uses because a key can't be published publicly to github so search will occasionally fail as too many requests are made.  Also the intuitve nature of adding books is a multi step process.  A book must be searched for, added, then navigated to, then finally added as a bookmark.
+\section{Future}
+\label{sec-6}
+
+  I plan to add a private api key so that api querying can be carried out more practically.  Also I intend to making searching and bookmarking books more intuitive.
+\section{Bugs}
+\label{sec-7}
+
+  Bugs existing are occasional failures by searches because of API key complications, and routing errors because certain functionality has be removed from scaffolds but not unrouted.
+
+\end{document}

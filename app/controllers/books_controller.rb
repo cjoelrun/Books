@@ -85,10 +85,10 @@ class BooksController < ApplicationController
   end
 
   def results
-    # if(params[:q])
-    @results = GoogleBooks::API.search(params[:q])
-    @book = Book.new
-    # end
+    if(params[:q])
+      @results = GoogleBooks::API.search(params[:q])
+      @book = Book.new
+    end
   end
 
   def add
