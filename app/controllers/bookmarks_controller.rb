@@ -1,6 +1,7 @@
 class BookmarksController < ApplicationController
   def index
-    @bookmarks = Bookmark.all
+    @user = User.find(params[:user_id])
+    @bookmarks = @user.bookmarks
 
     respond_to do |format|
       format.html # index.html.erb
@@ -27,6 +28,7 @@ class BookmarksController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:user_id])
     @bookmark = Bookmark.find(params[:id])
   end
 
