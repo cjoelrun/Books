@@ -1,4 +1,4 @@
-% Created 2011-12-13 Tue 23:24
+% Created 2011-12-16 Fri 21:26
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -53,7 +53,7 @@
 
    Behind Dewie are three major components.  \underline{Users}, \underline{books}, and \underline{bookmarks}.  How they're modeled describes how the site handles bookmarking well:  \underline{Users} and \underline{books} have a many-to-many relationship with each other through \underline{bookmarks}.
    \underline{Users} are handled through \href{https://github.com/plataformatec/devise}{devise}, a RubyGem.  They can have many books through \underline{bookmarks}.
-   \underline{Books} are scaffolded to contain all the information given by the \href{http://code.google.com/apis/books/}{Google Book API} query, carried out by the \href{http://rubygems.org/gems/google_books}{google\_books} RubyGem.  \underline{Books} can have many \underline{Users} through \underline{Bookmarks}.
+   \underline{Books} are scaffolded to contain all the information given by the \href{http://code.google.com/apis/books/}{Google Book API} query, carried out by my fork of the \href{https://github.com/cjoelrun/google_books}{google\_books} RubyGem.  \underline{Books} can have many \underline{Users} through \underline{Bookmarks}.
    \underline{Bookmarks} are the center functionality of the site.  They track \underline{Books} that \underline{Users} wish to track. 
 \subsubsection{Database}
 \label{sec-4-2-1}
@@ -72,7 +72,8 @@
 \subsection{Weaknesses}
 \label{sec-5-3}
 
-   A weakness of the site now is that the api is still limited in uses because a key can't be published publicly to github so search will occasionally fail as too many requests are made.  Also the intuitve nature of adding books is a multi step process.  A book must be searched for, added, then navigated to, then finally added as a bookmark.
+   A weakness of the site now is that the api is still limited in uses because a key can't be published publicly to github so search will occasionally fail as too many requests are made.  Also the intuitve nature of adding bookmarks is a multi step process.  A book must be searched for, added, then navigated to, then finally added as a bookmark.
+   Also authors and categories of books are not recorded from the API because of time restraints.  They must be stored in seperate tables because of has$_{\mathrm{many}}$ relationships.
 \section{Future}
 \label{sec-6}
 

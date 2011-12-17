@@ -2,7 +2,7 @@
                                 =====
 
 Author: Cameron Lopez
-Date: 2011-12-13 23:32:12 CST
+Date: 2011-12-16 21:27:15 CST
 
 
 Table of Contents
@@ -47,12 +47,12 @@ Table of Contents
 ============
    Behind Dewie are three major components.  _Users_, _books_, and _bookmarks_.  How they're modeled describes how the site handles bookmarking well:  _Users_ and _books_ have a many-to-many relationship with each other through _bookmarks_.
    _Users_ are handled through [devise], a RubyGem.  They can have many books through _bookmarks_.
-   _Books_ are scaffolded to contain all the information given by the [Google Book API] query, carried out by the [google_books] RubyGem.  _Books_ can have many _Users_ through _Bookmarks_.
+   _Books_ are scaffolded to contain all the information given by the [Google Book API] query, carried out by my fork of the [google_books] RubyGem.  _Books_ can have many _Users_ through _Bookmarks_.
    _Bookmarks_ are the center functionality of the site.  They track _Books_ that _Users_ wish to track. 
 
    [devise]: https://github.com/plataformatec/devise
    [Google Book API]: http://code.google.com/apis/books/
-   [google_books]: http://rubygems.org/gems/google_books
+   [google_books]: https://github.com/cjoelrun/google_books
 
 4.2.1 Database 
 ~~~~~~~~~~~~~~~
@@ -73,7 +73,8 @@ Table of Contents
 
 5.3 Weaknesses 
 ===============
-   A weakness of the site now is that the api is still limited in uses because a key can't be published publicly to github so search will occasionally fail as too many requests are made.  Also the intuitve nature of adding books is a multi step process.  A book must be searched for, added, then navigated to, then finally added as a bookmark.
+   A weakness of the site now is that the api is still limited in uses because a key can't be published publicly to github so search will occasionally fail as too many requests are made.  Also the intuitve nature of adding bookmarks is a multi step process.  A book must be searched for, added, then navigated to, then finally added as a bookmark.
+   Also authors and categories of books are not recorded from the API because of time restraints.  They must be stored in seperate tables because of has_many relationships.
 
 6 Future 
 ---------
