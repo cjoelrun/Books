@@ -1,7 +1,7 @@
 <%= link_to("Back to Search", search_path) %>
 
 <table>
-  <% [*@results].each do |book| %>
+  <% [@results].each do |book| %>
     <tr>
       <td>
 	<% if book.covers[:thumbnail] %>
