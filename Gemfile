@@ -6,8 +6,9 @@ gem "google_books", :git =>
   "git://github.com/cjoelrun/google_books.git"
 
 group :development, :test do
-   gem 'sqlite3', '1.3.4', :require => 'sqlite3'
-   gem 'cucumber', '~> 1.1.0'
+  gem 'sqlite3', '1.3.4', :require => 'sqlite3'
+  gem 'cucumber', '~> 1.1.0'
+  gem 'spork', '0.9.0.rc9'
 end
 
 group :assets do
