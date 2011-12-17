@@ -1,5 +1,5 @@
 <%= link_to("Back to Search", search_path) %>
-
+Hello: <%= request.env['HTTP_X_FORWARDED_FOR'] %>
 <table>
   <% for book in @results %>
     <tr>

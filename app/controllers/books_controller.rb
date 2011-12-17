@@ -86,7 +86,7 @@ class BooksController < ApplicationController
 
   def results
     if(params[:q])
-      @results = GoogleBooks::API.search(params[:q])
+      @results = GoogleBooks::API.search(params[:q], :ip_address => request.env['HTTP_X_FORWARDED_FOR'])
       @book = Book.new
     end
   end
