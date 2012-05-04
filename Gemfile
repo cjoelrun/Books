@@ -2,8 +2,8 @@ require 'rbconfig'
 HOST_OS = RbConfig::CONFIG['host_os']
 source 'http://rubygems.org'
 gem 'rails', '3.1.3'
-gem "google_books", :git =>
-  "git://github.com/cjoelrun/google_books.git"
+gem 'multi_json', '1.0.4'
+gem "google_books", :git => "git://github.com/rethinkbooks/google_books.git"
 
 group :development, :test do
   gem 'sqlite3', '1.3.4', :require => 'sqlite3'
@@ -19,7 +19,7 @@ end
 
 group :production do
   gem 'pg', '~> 0.11.0'
-  gem 'therubyracer-heroku', '~>0.8.1.pre3'
+  gem 'therubyracer'
   gem 'faker', '~> 1.0.1'
 end
 
